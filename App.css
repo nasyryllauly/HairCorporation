@@ -1,0 +1,493 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Кастомные стили для сайта тамады */
+.gradient-bg {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #1e293b 75%, #0f172a 100%);
+  min-height: 100vh;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #1e293b 75%, #0f172a 100%);
+}
+
+.section-bg {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #020617 100%);
+}
+
+.card-border {
+  border: 2px solid #06b6d4;
+  border-radius: 1rem;
+}
+
+.btn-telegram {
+  background: linear-gradient(135deg, #0088cc 0%, #0066aa 100%);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-telegram:hover {
+  background: linear-gradient(135deg, #0066aa 0%, #004488 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 136, 204, 0.3);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-price {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-price:hover {
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+}
+
+.stats-circle {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid #06b6d4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.package-card {
+  background: rgba(30, 41, 59, 0.8);
+  border: 2px solid #06b6d4;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+}
+
+.floating-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.widget-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.widget-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.widget-telegram {
+  background: linear-gradient(135deg, #0088cc 0%, #0066aa 100%);
+}
+
+.widget-whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+@media (max-width: 768px) {
+  .floating-widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .widget-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
+
+
+/* Улучшенные стили для элементов конверсии */
+
+/* Улучшенные кнопки CTA */
+.btn-telegram-enhanced {
+  background: linear-gradient(135deg, #0088cc, #00aaff);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-telegram-enhanced:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 136, 204, 0.4);
+  background: linear-gradient(135deg, #0099dd, #00bbff);
+}
+
+.btn-telegram-enhanced:active {
+  transform: translateY(-1px);
+}
+
+.btn-whatsapp-enhanced {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-whatsapp-enhanced:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(135deg, #2ee477, #139d8e);
+}
+
+.btn-whatsapp-enhanced:active {
+  transform: translateY(-1px);
+}
+
+/* Анимация для уведомлений */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out;
+}
+
+/* Баннер срочности */
+.urgency-banner {
+  position: relative;
+  z-index: 40;
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+  }
+}
+
+/* Улучшенные кнопки "Узнай цену!" */
+.price-btn-enhanced {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-btn-enhanced:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, #fbbf24, #fb923c);
+}
+
+.price-btn-enhanced:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.price-btn-enhanced:hover:before {
+  left: 100%;
+}
+
+/* Счетчик клиентов с анимацией */
+.client-counter {
+  display: inline-block;
+  animation: count-up 2s ease-out;
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Плавающая панель действий */
+.floating-action-panel {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  padding: 16px 24px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+  z-index: 45;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* Элементы доверия */
+.trust-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+/* Анимация для статистики */
+.stat-item {
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: scale(1.1);
+}
+
+/* Улучшенные карточки пакетов */
+.package-card-enhanced {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.8));
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.package-card-enhanced:hover {
+  transform: translateY(-10px);
+  border-color: #06b6d4;
+  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+}
+
+.package-card-enhanced:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6);
+}
+
+/* Мобильная оптимизация */
+@media (max-width: 768px) {
+  .btn-telegram-enhanced,
+  .btn-whatsapp-enhanced {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+  
+  .urgency-banner {
+    padding: 12px 16px;
+  }
+  
+  .urgency-banner span {
+    font-size: 14px;
+  }
+  
+  .floating-action-panel {
+    bottom: 10px;
+    padding: 12px 20px;
+  }
+}
+
